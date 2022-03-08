@@ -4,15 +4,15 @@ const main = async () => {
     await domainContract.deployed()
     console.log("Contract deployed to: ", domainContract.address);
 
-    let txn = await domainContract.register("Poofdickle", {value: hre.ethers.utils.parseEther('0.1')});
+    let txn = await domainContract.register("Donkey", {value: hre.ethers.utils.parseEther('0.1')});
     await txn.wait();
-    console.log("Minted domain poofdickle.betz")
+    console.log("Minted domain Donkey.betz")
 
-    txn = await domainContract.setRecord("Poofdickle", "Is if poof or a dickle")
+    txn = await domainContract.setRecord("Donkey", "Why ape when you can Donk!")
     await txn.wait();
-    console.log("Set the record for Poofdickle")
+    console.log("Set the record for Donkey")
 
-   const address = await domainContract.getAddress("Poofdickle");
+   const address = await domainContract.getAddress("Donkey");
    console.log("Owner of domain donkey:", address)
 
    const balance = await hre.ethers.provider.getBalance(domainContract.address);
